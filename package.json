@@ -1,0 +1,26 @@
+{
+  "name": "puppy-dnd",
+  "version": "1.0.0",
+  "description": "A simple drag and drop library 🐶",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [
+    "drag-n-drop", "drag", "drop"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/och-och/pawnimation.git"
+  },
+  "author": "och",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/och-och/pawnimation/issues"
+  },
+  "homepage": "https://github.com/och-och/pawnimation#readme",
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
+}
