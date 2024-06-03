@@ -15,31 +15,31 @@ export class DragHandle {
 	 */
 	constructor(public element: HTMLElement) {
 		this.element.classList.add("pup-draggable")
-		this.element.addEventListener("mousedown", e => this.onMouseDown(e))
+		this.element.addEventListener("mousedown", e => this.triggerDrag(e))
 	}
 
-	private onMouseDown(event: MouseEvent) {
+	triggerDrag(event: MouseEvent) {
 		this.offsetX = event.offsetX
 		this.offsetY = event.offsetY
 		this.element.style.position = "absolute"
 		this.updatePosition(event.pageX, event.pageY)
 
 		this.abortController = new AbortController()
-		document.addEventListener("mousemove", e => this.onMouseMove(e), {
+		document.addEventListener("mousemove", e => this.triggerMove(e), {
 			signal: this.abortController.signal,
 		})
-		document.addEventListener("mouseup", e => this.onMouseUp(e), {
+		document.addEventListener("mouseup", e => this.triggerDrop(e), {
 			signal: this.abortController.signal,
 		})
 		this.dragSubscribers.forEach(fn => fn(event))
 	}
 
-	private onMouseUp(event: MouseEvent) {
+	triggerDrop(event: MouseEvent) {
 		this.abortController.abort()
 		this.dropSubscribers.forEach(fn => fn(event))
 	}
 
-	private onMouseMove(event: MouseEvent) {
+	triggerMove(event: MouseEvent) {
 		this.updatePosition(event.pageX, event.pageY)
 		this.moveSubscribers.forEach(fn => fn(event))
 	}
