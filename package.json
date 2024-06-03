@@ -1,6 +1,6 @@
 {
   "name": "puppy-dnd",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A simple drag and drop library 🐶",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
